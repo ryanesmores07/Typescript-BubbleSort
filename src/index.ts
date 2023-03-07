@@ -1,26 +1,11 @@
-class Sorter {
-  constructor(public collection: number[]) {}
+import { Sorter } from "./Sorter";
+import { NumbersCollection } from "./NumbersCollection";
+import { CharactersCollection } from "./CharactersCollection";
 
-  sort(): void {
-    const { length } = this.collection;
-
-    for (let i = 0; i < length; i++) {
-      // Last i elements are already in place
-      for (let j = 0; j < length - i - 1; j++) {
-        // Checking if the item at present iteration
-        // is greater than the next iteration
-        if (this.collection[j] > this.collection[j + 1]) {
-          // If the condition is true then swap them
-          const leftHand = this.collection[j];
-          this.collection[j] = this.collection[j + 1];
-          this.collection[j + 1] = leftHand;
-        }
-      }
-    }
-    console.log(this.collection);
-  }
-}
-
-const sorter = new Sorter([10, 3, -5, 0]);
+const numbersCollection = new NumbersCollection([10, 3, -5, 0]);
+const charactersCollection = new CharactersCollection("XaabY");
+const sorter = new Sorter(charactersCollection);
 
 sorter.sort();
+// console.log(numbersCollection.data);
+console.log(charactersCollection.data);
